@@ -6,6 +6,9 @@
   "scripts": {
     "lint": "eslint ."
   },
+  "bin": {
+    "clp-node": "bin/init.js"
+  },
   "keywords": [
     "nodejs",
     "cli",
@@ -32,5 +35,12 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.6.2",
     "prettier": "^1.14.3"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "clear": "0.0.1",
+    "commander": "^2.9.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^5.0.1"
   }
 }
