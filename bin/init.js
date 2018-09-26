@@ -6,9 +6,9 @@ const program = require('commander');
 const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
-const inquirer = require("inquirer");
-const exec = require('child_process').exec;
-const fs = require('fs');
+const {
+  initialSetup
+} = require('../internals/scripts/setup')
 const {
   prompt
 } = require('inquirer');
@@ -39,6 +39,7 @@ program
   .action(() => {
     prompt(questions).then((answers) => {
       console.log("answers", answers);
+      initialSetup();
     });
   });
 
