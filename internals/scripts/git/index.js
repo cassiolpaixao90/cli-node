@@ -19,7 +19,7 @@ function gitClone(callback) {
     verifyProcess.bind(null, callback),
   );
 
-  getDir(nameProject);
+
   // shell.cp('-R', 'boilerplate-react-redux-pwa/', `${nameProject}`);
   // shell.rm('-rf', 'boilerplate-react-redux-pwa');
 }
@@ -30,6 +30,7 @@ const initGit = function (name) {
   interval = animateProgress('Initialising new repository');
   process.stdout.write('Initialising new repository');
   gitClone(function () {
+    getDir(nameProject);
     clearInterval(interval);
     endProcess();
   });
