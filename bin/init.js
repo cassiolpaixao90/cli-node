@@ -38,8 +38,7 @@ program
   .description('Create Project')
   .action(() => {
     prompt(questions).then((answers) => {
-      console.log("answers", answers);
-      initialSetup();
+      initialSetup(answers.name.toString());
     });
   });
 

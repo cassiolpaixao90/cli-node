@@ -23,11 +23,11 @@ process.stdout.write('\n');
 /**
  * @description Initial setup
  */
-const initialSetup = function () {
+const initialSetup = function (nameProject) {
   nodeVersion();
-  initGit();
-
+  initGit(nameProject);
 }
+
 
 module.exports = {
   initialSetup
