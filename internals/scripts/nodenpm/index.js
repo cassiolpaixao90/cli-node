@@ -26,7 +26,13 @@ const nodeVersion = function () {
   npmVersion();
 }
 
-
+const install = function () {
+  console.log('Install dependencies');
+  exec('npm install', function (code, stdout, stderr) {
+    console.log("Dependencies installed!");
+  });
+}
 module.exports = {
-  nodeVersion
+  nodeVersion,
+  install
 };
