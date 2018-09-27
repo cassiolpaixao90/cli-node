@@ -18,10 +18,6 @@ function gitClone(callback) {
     'git clone https://github.com/cassiolpaixao90/boilerplate-react-redux-pwa.git',
     verifyProcess.bind(null, callback),
   );
-
-
-  // shell.cp('-R', 'boilerplate-react-redux-pwa/', `${nameProject}`);
-  // shell.rm('-rf', 'boilerplate-react-redux-pwa');
 }
 
 const initGit = function (name) {
