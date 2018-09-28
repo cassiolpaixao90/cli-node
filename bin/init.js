@@ -13,6 +13,11 @@ const {
   prompt
 } = require('inquirer');
 
+// const {
+//   generate
+// } = require('../internals/scripts/genarator/index')
+
+const shell = require('shelljs');
 
 clear();
 console.log(
@@ -40,6 +45,16 @@ program
     prompt(questions).then((answers) => {
       initialSetup(answers.name.toString());
     });
+  });
+
+program
+  .command('generate')
+  .alias('g')
+  .description('Generate Service')
+  .action(() => {
+    // generate();
+    shell.echo('generator...')
+    shell.exit(1);
   });
 
 process.on('SIGINT', function (exit) {
