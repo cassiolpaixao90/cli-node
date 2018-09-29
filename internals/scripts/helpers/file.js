@@ -17,7 +17,6 @@ class EditJsonFile {
     this.data = this.read();
   }
 
-
   set(path, value) {
     if (typeof path === "object") {
       iterateObject(path, (val, n) => {
@@ -38,6 +37,7 @@ class EditJsonFile {
     }
     return this.toObject();
   }
+
   unset(path) {
     return this.set(path, undefined);
   }
@@ -69,7 +69,6 @@ class EditJsonFile {
     this.write(JSON.stringify(this.data, this.options.stringify_fn, this.options.stringify_width), cb)
     return this;
   }
-
 
   toObject() {
     return this.data;
