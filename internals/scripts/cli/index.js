@@ -8,8 +8,17 @@ const {
   prompt
 } = require('inquirer');
 
+const InitialSetup = require('../setup')
+
 const BaseBuilder = require('../../pattern/base-builder');
 
+
+/**
+ * @class InitCLIBuilder
+ * @extends {BaseBuilder}
+ * @description create a builder to intializer cli
+ * @author Cássio Paixão
+ */
 class InitCLIBuilder extends BaseBuilder {
 
   constructor() {
@@ -21,6 +30,10 @@ class InitCLIBuilder extends BaseBuilder {
     super.init();
   }
 
+  /**
+   * @method initCLI
+   * @description Intializer CLI
+   */
   initCLI() {
 
     clear();
@@ -34,6 +47,11 @@ class InitCLIBuilder extends BaseBuilder {
       .description('start project nodejs + express');
   }
 
+
+  /**
+   * @method createCLI
+   * @description create options questions to CLI
+   */
   createCLI() {
 
     this.options = [{
@@ -48,11 +66,16 @@ class InitCLIBuilder extends BaseBuilder {
       .description('Create Project')
       .action(() => {
         prompt(this.options).then((option) => {
-          initialSetup(option.name.toString());
+          InitialSetup.init(option.name.toString());
         });
       });
   }
 
+
+  /**
+   * @method generatorCLI
+   * @description generate a new service
+   */
   generatorCLI() {
 
     program
@@ -66,6 +89,11 @@ class InitCLIBuilder extends BaseBuilder {
       });
   }
 
+
+  /**
+   * @method endCLI
+   * @description finalize CLI
+   */
   endCLI() {
 
     if (!process.argv.slice(2).length || !/[arudl]/.test(process.argv.slice(2))) {

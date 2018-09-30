@@ -2,28 +2,23 @@
 
 const shell = require('shelljs');
 const editJsonFile = require('./file');
-const {
-  install
-} = require('../nodenpm/index');
+class Dir {
 
-const getDir = function (nameProject) {
-  shell.cp('-R', 'boilerplate-react-redux-pwa/', `${nameProject}`);
-  shell.rm('-rf', 'boilerplate-react-redux-pwa');
-  shell.cd(`${nameProject}`);
-  changeValuePackage(nameProject);
+  renamePath(name) {
+    shell.cp('-R', 'boilerplate-react-redux-pwa/', `${name}`);
+    shell.rm('-rf', 'boilerplate-react-redux-pwa');
+    shell.cd(`${name}`);
+    this.changeValueFile(name);
+  }
+
+  changeValueFile(name) {
+    let file = editJsonFile('package.json');
+    file.set('name', name);
+    file.save();
+    editJsonFile('package.json', {
+      autosave: true
+    });
+  }
 }
 
-function changeValuePackage(name) {
-
-  let file = editJsonFile('package.json');
-  file.set('name', name);
-  file.save();
-  editJsonFile('package.json', {
-    autosave: true
-  });
-
-}
-
-module.exports = {
-  getDir
-}
+module.exports = new Dir()
