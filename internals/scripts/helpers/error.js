@@ -20,3 +20,10 @@ module.exports.PathError = class extends AppError {
     super('path erros')
   }
 }
+
+
+module.exports.NpmOrNodeError = class extends AppError {
+  constructor() {
+    super('npm or node erros')
+  }
+}

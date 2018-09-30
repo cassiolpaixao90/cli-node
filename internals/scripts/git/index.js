@@ -49,9 +49,8 @@ class Git {
 
   init(name) {
     this.name = name || 'my-app'
-    this.interval = animateProgress('starting configuration...')
-    this.clone(name)
-    clearInterval(this.interval)
+    shell.echo('starting configuration...')
+    this.clone(name);
   }
 
   clone(name) {
@@ -60,7 +59,6 @@ class Git {
     }
 
     Dir.renamePath(name)
-    // process.exit(1)
   }
 
 }

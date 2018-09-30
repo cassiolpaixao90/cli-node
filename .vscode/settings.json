@@ -1,0 +1,20 @@
+{
+  "workbench.colorTheme": "Atom Material Theme",
+  "editor.renderWhitespace": "all",
+  "window.menuBarVisibility": "toggle",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "window.titleBarStyle": "custom",
+  "workbench.colorCustomizations": {
+    "sideBar.foreground": "#fff",
+    "sideBarTitle.foreground": "#fff",
+    "sideBarSectionHeader.foreground": "#fff",
+    "list.inactiveSelectionForeground": "#fff",
+    "list.activeSelectionForeground": "#fff",
+    "list.highlightForeground": "#fff",
+    "terminal.background": "#232e33"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.rulers": [80]
+}

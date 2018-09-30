@@ -2,7 +2,7 @@
 
 'use strict';
 
-const InitCLIBuilder = require('../internals/scripts/cli/index')
+const InitCLIBuilder = require('../internals/scripts/cli')
 
 InitCLIBuilder
   .withInit()
