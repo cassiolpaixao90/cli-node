@@ -2,6 +2,7 @@
 
 
 const Git = require('./git')
+const Generator = require('./genarator')
 // const animateProgress = require('./helpers/progress')
 
 class InitialSetup {
@@ -17,6 +18,10 @@ class InitialSetup {
     // this.interval = animateProgress('starting configuration...')
     Git.init(name)
     // clearInterval(this.interval)
+  }
+
+  generator(name) {
+    Generator.getPath(name);
   }
 }
 

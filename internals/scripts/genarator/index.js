@@ -11,3 +11,24 @@
   module.exports = {
     generate
   }
+
+
+  class Generator {
+
+    getPath(name) {
+      const ret = shell.pwd();
+      const path = `${ret}\\${name}`
+      const dataF = this.data(name, path)
+
+    }
+
+    data(name, path) {
+      return {
+        name: name,
+        path: path
+      }
+    }
+
+
+  }
+  module.exports = new Generator();

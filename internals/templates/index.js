@@ -1,37 +1,45 @@
- const shell = require('shelljs');
+//https: //thisdavej.com/learn-handlebars-with-node-js-and-help-freddys-fish/#custom-helper-to-provide-conditional-formatting
+const fs = require('fs');
+const handlebars = require('handlebars');
 
- shell.echo('geerando...')
- shell.exit(0);
+const inFileController = './controller.hbs';
+const outFileController = './controller.js';
 
- // const fs = require('fs');
- // const path = require('path');
- // const {
- //   exec
- // } = require('child_process');
- // const serviceGenerator = require('./service/index.js');
- // module.exports = plop => {
- //   plop.setGenerator('service', componentGenerator);
- //   plop.addHelper('directory', comp => {
- //     try {
- //       fs.accessSync(
- //         path.join(__dirname, `../../app/containers/${comp}`),
- //         fs.F_OK,
- //       );
- //       return `containers/${comp}`;
- //     } catch (e) {
- //       return `components/${comp}`;
- //     }
- //   });
- //   plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
- //   plop.setActionType('prettify', (answers, config) => {
- //     const folderPath = `${path.join(
- //       __dirname,
- //       '/../../app/',
- //       config.path,
- //       plop.getHelper('properCase')(answers.name),
- //       '**.js',
- //     )}`;
- //     exec(`npm run prettify -- "${folderPath}"`);
- //     return folderPath;
- //   });
- // };
+
+const source = fs.readFileSync(inFileController, 'utf8');
+const template = handlebars.compile(source, {
+  strict: true
+});
+const result = template({
+  data
+});
+
+console.log(result);
+
+fs.writeFileSync(outFile, result);
+console.log(`File written to ${outFile}`);
+
+const baseBuilder = require('../pattern/base-builder')
+class Service extends baseBuilder {
+
+  moduleController() {
+    const inFileController = './controller.hbs';
+    const outFileController = './controller.js';
+  }
+
+  moduleTest() {
+    const inFileTest = './test.hbs';
+    const outFileTest = './test.js';
+  }
+
+  moduleRepository() {
+    const inFileRepository = './repository.hbs';
+    const outFileRepository = './repository.js';
+  }
+
+  moduleService() {
+    const inFileService = './service.hbs';
+    const outFileService = './service.js';
+  }
+}
+module.exports = new Service()

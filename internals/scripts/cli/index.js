@@ -77,14 +77,20 @@ class InitCLIBuilder extends BaseBuilder {
    */
   generatorCLI() {
 
+    this.options = [{
+      type: 'input',
+      name: 'name',
+      message: 'Enter name module: '
+    }];
+
     program
       .command('generate')
       .alias('g')
       .description('Generate Service')
       .action(() => {
-        // generate();
-        shell.echo('generator...')
-        shell.exit(1);
+        prompt(this.options).then((option) => {
+          InitialSetup.generator(option.name.toString());
+        });
       });
   }
 
