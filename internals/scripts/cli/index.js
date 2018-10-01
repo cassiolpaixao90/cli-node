@@ -12,7 +12,6 @@ const InitialSetup = require('../setup')
 
 const BaseBuilder = require('../../pattern/base-builder');
 
-
 /**
  * @class InitCLIBuilder
  * @extends {BaseBuilder}
