@@ -23,8 +23,8 @@ class Npm {
     shell.echo('verifying version node')
     const stdout = shell.exec('node --version').stdout
     const version = stdout && parseFloat(stdout.substring(1));
-    if (version < 8 || err) {
-      logger.error(err || 'Unsupported node.js version, make sure you have the latest version installed.');
+    if (version < 8) {
+      logger.error('Unsupported node.js version, make sure you have the latest version installed.');
       endProcess();
     }
     this.npmVersion();
@@ -33,8 +33,8 @@ class Npm {
   npmVersion() {
     shell.echo('Verifying version npm')
     const stdout = shell.exec('npm --version').stdout
-    if (parseFloat(stdout) < 5 || err) {
-      logger.error(err || 'You need npm version @>=5')
+    if (parseFloat(stdout) < 5) {
+      logger.error('You need npm version @>=5')
       endProcess();
     }
   }

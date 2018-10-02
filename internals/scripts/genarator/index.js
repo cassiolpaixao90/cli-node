@@ -19,6 +19,7 @@
 
     generate(dataF) {
       serviceBuilder(dataF)
+        .withCreate()
         .withController()
         .withTest()
         .withRepository()

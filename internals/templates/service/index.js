@@ -1,9 +1,8 @@
 //https: //thisdavej.com/learn-handlebars-with-node-js-and-help-freddys-fish/#custom-helper-to-provide-conditional-formatting
 const fs = require('fs');
-const {
-  resolve
-} = require('path')
-const handlebars = require('handlebars');
+const shelljs = require('shelljs')
+const handlebars = require('handlebars')
+
 const baseBuilder = require('../../pattern/base-builder')
 
 class ServiceBuilder extends baseBuilder {
@@ -11,11 +10,16 @@ class ServiceBuilder extends baseBuilder {
   constructor(data) {
     super();
     this.data = data;
+    this.create = this.createModule();
     this.controller = this.moduleController();
     this.test = this.moduleTest();
     this.repository = this.moduleRepository();
     this.service = this.moduleService();
     super.init();
+  }
+
+  createModule() {
+    shelljs.mkdir('-p', this.data.path, this.data.name);
   }
 
   moduleController() {
