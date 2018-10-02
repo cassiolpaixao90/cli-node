@@ -3,46 +3,48 @@ const fs = require('fs');
 const handlebars = require('handlebars');
 const baseBuilder = require('../pattern/base-builder')
 
-class Service extends baseBuilder {
+class ServiceBuilder extends baseBuilder {
 
   constructor(data) {
     super();
-    this.init = this.moduleController(data);
-    this.create = this.moduleTest(data);
-    this.generator = this.moduleRepository(data);
-    this.end = this.moduleService(data);
+    this.data = data;
+    this.controller = this.moduleController();
+    this.test = this.moduleTest();
+    this.repository = this.moduleRepository();
+    this.service = this.moduleService();
     super.init();
   }
 
-  moduleController(data) {
+  moduleController() {
     const inFileController = './controller.hbs';
     const outFileController = './controller.js';
     this.generateFile();
   }
 
-  moduleTest(data) {
+  moduleTest() {
     const inFileTest = './test.hbs';
     const outFileTest = './test.js';
     this.generateFile();
   }
 
-  moduleRepository(data) {
+  moduleRepository() {
     const inFileRepository = './repository.hbs';
     const outFileRepository = './repository.js';
     this.generateFile();
   }
 
-  moduleService(data) {
+  moduleService() {
     const inFileService = './service.hbs';
     const outFileService = './service.js';
     this.generateFile();
   }
 
-  generateFile(inFile, outFile, data) {
+  generateFile(inFile, outFile) {
     const source = fs.readFileSync(inFile, 'utf8');
     const template = handlebars.compile(source, {
       strict: true
     });
+    const data = this.data;
     const result = template({
       data
     });

@@ -1,5 +1,5 @@
   const shell = require('shelljs');
-  const Service = require('../../templates')
+  const ServiceBuilder = require('../../templates')
 
   class Generator {
 
@@ -7,7 +7,7 @@
       const ret = shell.pwd();
       const path = `${ret}\\${name}`
       const dataF = thi.data(name, path)
-      Service(dataF)
+      generate();
     }
 
     data(name, path) {
@@ -17,6 +17,13 @@
       }
     }
 
+    generate() {
+      ServiceBuilder(dataF)
+        .withInit()
+        .withCreate()
+        .withEnd()
+        .build();
+    }
 
   }
   module.exports = new Generator();
