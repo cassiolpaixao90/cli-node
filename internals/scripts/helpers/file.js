@@ -8,7 +8,6 @@ const iterateObject = require("iterate-object");
 
 class EditJsonFile {
 
-
   constructor(path, options) {
     this.options = options = options || {};
     options.stringify_width = options.stringify_width || 2;

@@ -1,25 +1,13 @@
   const shell = require('shelljs');
-
-
-  const generate = function () {
-    if (shell.exec('plop internals/templates/index.js').code !== 0) {
-      shell.echo("Error: Failed")
-      shell.exit(1)
-    }
-  }
-
-  module.exports = {
-    generate
-  }
-
+  const Service = require('../../templates')
 
   class Generator {
 
     getPath(name) {
       const ret = shell.pwd();
       const path = `${ret}\\${name}`
-      const dataF = this.data(name, path)
-
+      const dataF = thi.data(name, path)
+      Service(dataF)
     }
 
     data(name, path) {
