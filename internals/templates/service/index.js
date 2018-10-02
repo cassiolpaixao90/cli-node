@@ -19,27 +19,27 @@ class ServiceBuilder extends baseBuilder {
   }
 
   moduleController() {
-    const inFileController = './controller.hbs';
-    console.log("inFileController", inFileController);
-    const outFileController = './controller.js';
+    const inFileController = __dirname + '\\controller.hbs';
+    const outFileController = this.data.path + '\\controller.js';
     this.generateFile(inFileController, outFileController);
   }
 
   moduleTest() {
-    const inFileTest = 'test.hbs'
-    const outFileTest = './test.js';
+
+    const inFileTest = __dirname + '\\test.hbs'
+    const outFileTest = this.data.path + '\\test.js';
     this.generateFile(inFileTest, outFileTest);
   }
 
   moduleRepository() {
-    const inFileRepository = resolve('repository.hbs')
-    const outFileRepository = './repository.js';
+    const inFileRepository = __dirname + '\\repository.hbs'
+    const outFileRepository = this.data.path + '\\repository.js';
     this.generateFile(inFileRepository, outFileRepository);
   }
 
   moduleService() {
-    const inFileService = resolve('service.hbs')
-    const outFileService = './service.js';
+    const inFileService = __dirname + '\\service.hbs'
+    const outFileService = this.data.path + '\\service.js';
     this.generateFile(inFileService, outFileService);
   }
 
@@ -48,9 +48,8 @@ class ServiceBuilder extends baseBuilder {
     const template = handlebars.compile(source, {
       strict: true
     });
-    const data = this.data
     const result = template({
-      data
+      name: this.data.name
     });
     fs.writeFileSync(outFile, result);
   }
