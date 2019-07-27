@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-'use strict';
+/**
+ * @author Cássio Paixão
+ */
+const InitCLIBuilder = require('../src');
 
-const InitCLIBuilder = require('../internals/scripts/cli')
-
-InitCLIBuilder
-  .withInit()
-  .withCreate()
-  .withEnd()
-  .build();
+InitCLIBuilder.run(process.argv);
